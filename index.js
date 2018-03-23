@@ -27,13 +27,13 @@ restService.post("/echo", function(req, res) {
   });
 });
 
-restService.post("/echo", function(req, res) {
+restService.post("/echo1", function(req, res) {
   var speech =
     req.body.result &&
     req.body.result.parameters &&
-    (req.body.result.parameters.number >900000 && req.body.result.parameters.number < 999999)
-      ? "It's valid Medical code."
-      : "It's invalid Medical code.";
+    (req.body.result.parameters.number > 9 && req.body.result.parameters.number < 20)
+      ? "It's valid Billing code."
+      : "It's invalid Billing code.";
   return res.json({
     speech: speech,
     displayText: speech,
