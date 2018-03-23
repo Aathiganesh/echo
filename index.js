@@ -27,6 +27,20 @@ restService.post("/echo", function(req, res) {
   });
 });
 
+restService.post("/echo", function(req, res) {
+  var speech =
+    req.body.result &&
+    req.body.result.parameters &&
+    (req.body.result.parameters.number >900000 && req.body.result.parameters.number < 999999)
+      ? "It's valid Medical code."
+      : "It's invalid Medical code.";
+  return res.json({
+    speech: speech,
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
+
 restService.post("/audio", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
@@ -135,7 +149,7 @@ restService.post("/slack-test", function(req, res) {
     text: "Details of JIRA board for Browse and Commerce",
     attachments: [
       {
-        title: "AAthi",
+        title: "AAthi test",
         title_link: "http://www.google.com",
         color: "#36a64f",
 
@@ -194,9 +208,6 @@ restService.post("/slack-test", function(req, res) {
     }
   });
 });
-
-  
-  
 
 restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
