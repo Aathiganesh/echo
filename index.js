@@ -135,7 +135,7 @@ restService.post("/slack-test", function(req, res) {
     text: "Details of JIRA board for Browse and Commerce",
     attachments: [
       {
-        title: "JIRA Board",
+        title: "AAthi",
         title_link: "http://www.google.com",
         color: "#36a64f",
 
