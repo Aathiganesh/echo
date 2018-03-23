@@ -193,12 +193,10 @@ restService.post("/slack-test", function(req, res) {
       slack: slack_message
     }
   });
-  
-  
-  
-restService.get("/", function(req, res) {
-  return '<html><body><h1>Welcome</h1></body></html>';
 });
+
+  
+  
 
 restService.listen(process.env.PORT || 8000, function() {
   console.log("Server up and listening");
