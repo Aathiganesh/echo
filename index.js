@@ -28,15 +28,45 @@ restService.post("/echo", function(req, res) {
 });
 
 restService.post("/echo1", function(req, res) {
-  var speech =
-    req.body.result &&
-    req.body.result.parameters &&
-    (req.body.result.parameters.echoNumber > 9 && req.body.result.parameters.echoNumber < 20)
-      ? "It's valid Billing code."
-      : "It's invalid Billing code.";
+  var textresponse;
+  if (req.body.result
+    && req.body.result.parameters) {
+
+    if (req.body.result.parameters.echoNumber) {
+      if (req.body.result.parameters.echoNumber > 9
+        && req.body.result.parameters.echoNumber < 20) {
+      
+        textresponse = "It's valid Billing code.";
+      }
+      else {
+        textresponse = "It's an invalid Billing code.";
+      }
+    }
+    else if (req.body.result.parameters.echoName) {
+      if (req.body.result.parameters.echoName = 'Aathi') {
+        textresponse = 'You have completed 5 tasks today!';
+      }
+      else if (req.body.result.parameters.echoName = 'Arjun') {
+        textresponse = 'Great! You have completed 8 tasks today.';
+      }
+      else if (req.body.result.parameters.echoName = 'Rathinavel') {
+        textresponse = 'Oops!! You have completed 2 tasks today!';
+      }
+      else if (req.body.result.parameters.echoName = 'Sudha') {
+        textresponse = 'Not bad!! You have completed 6 tasks today!';
+      }
+      else {
+        textresponse = 'No tasks assigned to you!';
+      }
+    }
+  }
+  else {
+    textresponse = "Response is invalid!";
+  }
+
   return res.json({
-    speech: speech,
-    displayText: speech,
+    speech: textresponse,
+    displayText: textresponse,
     source: "webhook-echo-sample"
   });
 });
