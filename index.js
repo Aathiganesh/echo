@@ -34,7 +34,7 @@ restService.post("/echo1", function(req, res) {
 
     if (req.body.result.parameters.echoNumber) {
       if (req.body.result.parameters.echoNumber > 9
-        && req.body.result.parameters.echoNumber < 20) {
+        && req.body.result.parameters.echoNumber < 100) {
       
         textresponse = "It's valid Billing code.";
       }
@@ -57,6 +57,22 @@ restService.post("/echo1", function(req, res) {
       }
       else {
         textresponse = 'No tasks assigned to you!';
+      }
+    }
+    else if (req.body.result.parameters.echoMcode) {
+      var str = req.body.result.parameters.echoMcode;
+      if (str.match(/\b[ABC]/g) 
+        && str.length === 6) {
+
+        textresponse = 'Given medical code is valid!';
+      }
+      else if (str.match(/\b[DEF]/g) 
+        && str.length === 6) {
+
+        textresponse = 'This medical code is invalid!';
+      }
+      else {
+        textresponse = 'Please enter a medical code!';
       }
     }
   }
