@@ -31,7 +31,7 @@ restService.post("/echo1", function(req, res) {
   var speech =
     req.body.result &&
     req.body.result.parameters &&
-    (req.body.result.parameters.number > 9 && req.body.result.parameters.number < 20)
+    (req.body.result.parameters.echoNumber > 9 && req.body.result.parameters.echoNumber < 20)
       ? "It's valid Billing code."
       : "It's invalid Billing code.";
   return res.json({
