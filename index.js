@@ -43,16 +43,16 @@ restService.post("/echo1", function(req, res) {
       }
     }
     else if (req.body.result.parameters.echoName) {
-      if (req.body.result.parameters.echoName = 'Aathi') {
+      if (req.body.result.parameters.echoName === 'Aathi') {
         textresponse = 'You have completed 5 tasks today!';
       }
-      else if (req.body.result.parameters.echoName = 'Arjun') {
+      else if (req.body.result.parameters.echoName === 'Arjun') {
         textresponse = 'Great! You have completed 8 tasks today.';
       }
-      else if (req.body.result.parameters.echoName = 'Rathinavel') {
+      else if (req.body.result.parameters.echoName === 'Rathinavel') {
         textresponse = 'Oops!! You have completed 2 tasks today!';
       }
-      else if (req.body.result.parameters.echoName = 'Sudha') {
+      else if (req.body.result.parameters.echoName === 'Sudha') {
         textresponse = 'Not bad!! You have completed 6 tasks today!';
       }
       else {
